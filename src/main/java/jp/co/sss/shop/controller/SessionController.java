@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.sss.shop.form.LoginForm;
+
 @Controller
 public class SessionController {
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
@@ -23,5 +25,17 @@ public class SessionController {
 	public String doLoginPost(Integer userId) {
 		System.out.println("ユーザ ID:" + userId);
 		return "session/login";
+	}
+
+	@RequestMapping(path = "/loginUsingForm", method = RequestMethod.GET)
+	public String loginUsingForm() {
+		return "session/login_using_form";
+	}
+
+	@RequestMapping(path = "/doLoginUsingForm", method = RequestMethod.POST)
+	public String doLoginUsingForm(LoginForm form) {
+		System.out.println("ユーザ ID:" + form.getUserId());
+		System.out.println("パスワード:" + form.getPassword());
+		return "session/login_using_form";
 	}
 }
