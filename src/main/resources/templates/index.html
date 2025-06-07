@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>	
-<body>
-	<h1>
-	${hoge}
-	</h1>
-	<div th:text="${hoge}"></div>
-	<div>[[ ${hoge} ]]</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <div>トップページ</div>
+    <div th:text="${session.userId}"></div>
+    <a th:href="@{/loginOnSession}">ログイン</a>
+    <a th:href="@{/logout}">ログアウト</a>
+  </body>
 </html>
